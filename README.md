@@ -1,2 +1,3 @@
 # Highcharts-Angular
-npm install Highcharts
+npm install Highcharts --save
+npm install Highcharts-angular
