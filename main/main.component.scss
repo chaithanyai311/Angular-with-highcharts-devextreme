@@ -1,0 +1,242 @@
+@use '@angular/material' as mat;
+.main-component {
+    display: flex;
+    justify-content: space-between;
+}
+@mixin main-styles($theme) {
+    .search-input {
+        width: 100%;
+    }
+    .left-sidebar {
+        width: 200px;
+        flex: 0 0 15%;
+        border-right: 1px solid #d6dbe3;
+        justify-content: center;
+
+        common-library {
+            .common-library__entry__icon {
+                width: 24px;
+                height: 24px;
+            }
+            .sidebars__wrapper {
+                height: calc(100vh - 120px);
+            }
+            .common-library__panel {
+                height: calc(100vh - 200px);
+            }
+        }
+    }
+    .main-vehicles-tiles-view {
+        display: block;
+        align-items: flex-start;
+        flex: 1 1 100%;
+        padding: 16px;
+        flex-wrap: wrap;
+        overflow: auto;
+        height: calc(100vh - 120px);
+        box-sizing: border-box;
+        justify-content: center;
+    }
+    .tile {
+        border: 1px solid #d6dbe3;
+        margin: 32px;
+        .title,
+        .section-title {
+            text-align: center;
+            background: #e0eaf8;
+            padding: 8px;
+            margin: 0px;
+        }
+        .title {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.4rem;
+            &:hover {
+                background: #cadbf4;
+            }
+        }
+        &.selected .title {
+            background: #a8c4ee;
+        }
+        .body-section {
+            margin: 4px;
+            border: 1px solid #d6dbe3;
+            p {
+                padding: 0.5rem;
+            }
+            div {
+                padding: 5px;
+            }
+        }
+    }
+    .right-sidebar {
+        flex: 0 0 320px;
+        height: calc(100vh - 120px);
+        overflow: auto;
+        border-left: 1px solid #d6dbe3;
+
+        .btn--custom {
+            .btn-icon {
+                width: 24px;
+                height: 24px;
+            }
+            span {
+                overflow: visible;
+                max-width: unset;
+                font-weight: bold;
+                margin-right: 0.4rem;
+            }
+        }
+
+        .object-input {
+            // margin: 0px 32px 24px;
+            // max-width: 688px;
+
+            border: 1px solid transparent;
+            background-color: #fff;
+            border-radius: 0px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            border-color: mat.get-color-from-palette($accent, 350);
+        }
+
+        .object-input-title {
+            padding: 8px 25px;
+            font-size: 11pt;
+            font-size: 11pt;
+            color: mat.get-color-from-palette($accent, 900);
+            background-color: mat.get-color-from-palette($accent, 350);
+            cursor: default;
+            border-color: mat.get-color-from-palette($accent, 350);
+            @include truncate(100%);
+        }
+
+        .object-input-controls {
+            padding: 8px 14px 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            div[main-group-top],
+            div[main-group-bottom] {
+                flex: 0 1 100%;
+            }
+        }
+
+        .editor__long-control {
+            flex: 1 1 100%;
+            margin-top: 15px;
+            max-width: 100%;
+        }
+
+        .object-input-controls .editor__short-control {
+            flex: 0 1 47%;
+            margin-top: 15px;
+            max-width: 47%;
+        }
+    }
+    .sidebar-title {
+        cursor: default;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 24px;
+        box-sizing: border-box;
+        margin: 0;
+        font-weight: 400;
+        font-size: 15pt;
+        color: #8495ac;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .lightweight-editor-object .object-input {
+        margin-top: 0;
+    }
+}
+
+// Styles
+
+.topfield,
+.page-container {
+    align-items: center !important;
+    justify-content: center !important;
+    display: flex;
+    width: 100%;
+}
+
+.topfield .mat-stroked-button {
+    margin-left: 20px;
+}
+
+.yearInput {
+    height: 20px;
+    border-color: #b2bccb;
+}
+
+.addTestbedButton1 button {
+    margin-top: 10%;
+    width: 70%;
+    height: 35px;
+}
+.addTestbedButton1 {
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+//tab
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.page-container {
+    align-items: center !important;
+    justify-content: center !important;
+    display: block;
+}
+
+.TabButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TabButton {
+    margin-bottom: 3%;
+    width: 40%;
+    height: 10%;
+    border-radius: 0;
+}
+
+.active-button {
+    border-bottom: solid 2px #2a6cd3;
+}
+
+.active-testbutton {
+    background-color: #2a6cd3;
+    font-weight: bold;
+    color: white;
+}
+
+#testbed-Util {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 95%;
+}
+
+mat-form-field{
+    margin-left: 5%;
+}
