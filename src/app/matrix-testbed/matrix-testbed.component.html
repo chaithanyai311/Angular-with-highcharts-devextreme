@@ -1,0 +1,135 @@
+<div class="topfield">
+  <mat-form-field>
+    <mat-label>Select a Month</mat-label>
+    <mat-select [formControl]="selectedMonth" name="selectedMonth">
+      <mat-option *ngFor="let month of months" [value]="month">{{ month }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Select a Year</mat-label>
+    <mat-select [formControl]="selectedYear">
+      <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="saveButton">
+    <button mat-flat-button color="primary" style="background-color: #2a6cd3;">Save</button>
+  </div>
+</div>
+
+<div class="table">
+  <div class="app-container">
+    <dx-data-grid id="dataGrid" [dataSource]="testbedUtil" [columnAutoWidth]="false" [showBorders]="true">
+      <dxo-paging [enabled]="false"></dxo-paging>
+      <dxo-scrolling mode="infinite">
+      </dxo-scrolling>
+      <dxo-editing mode="cell" [allowUpdating]="true">
+      </dxo-editing>
+
+      <dxi-column dataField="Date" caption="Date" [width]="'7%'" headerCellTemplate="HeaderTemplate"
+        [allowEditing]="false"></dxi-column>
+
+      <dxi-column dataField="IdealAvailableTime" caption="Ideal Available Time" [width]="'9.9%'"
+        headerCellTemplate="HeaderTemplate" dataType="datetime" format="HH:mm"
+        [editorOptions]="{ type: 'time',interval: 15 }">
+      </dxi-column>
+
+      <dxi-column dataField="DynoRunning" caption="Dyno running Hrs" headerCellTemplate="HeaderTemplate"
+        [width]="'8.9%'" dataType="datetime" format="HH:mm" [editorOptions]="{ type:'time' ,interval: 15}">
+      </dxi-column>
+
+      <dxi-column caption="Testing related downstream" alignment="center" headerCellTemplate="HeaderTemplate">
+        <dxi-column dataField="FailureInvest" caption="Failure Invest" headerCellTemplate="HeaderTemplate"
+          [width]="'7%'" dataType="datetime" format="HH:mm" [editorOptions]="{ type: 'time' ,interval: 15}">
+        </dxi-column>
+
+        <dxi-column dataField="Setup" caption="Setup" headerCellTemplate="HeaderTemplate" dataType="datetime"
+          [width]="'5.2%'" format="HH:mm" [editorOptions]="{ type: 'time' ,interval: 15}"></dxi-column>
+
+        <dxi-column dataField="NoTesting" caption="No Testing" [width]="'7%'" headerCellTemplate="HeaderTemplate"
+          dataType="datetime" format="HH:mm" [editorOptions]="{ type: 'time',interval: 15}">
+        </dxi-column>
+
+        <dxi-column dataField="Others" caption="Others" headerCellTemplate="HeaderTemplate" dataType="datetime"
+          [width]="'5.2%'" format="HH:mm" [editorOptions]="{ type: 'time',interval: 15}"></dxi-column>
+      </dxi-column>
+
+      <dxi-column caption="Remarks" type="buttons" id="btn1" headerCellTemplate="HeaderTemplate" [width]="'4.7%'">
+        <dxi-button text="Click me" hint="Click me">
+        </dxi-button>
+      </dxi-column>
+      <dxi-column caption="Counter Measures" type="buttons" id="btn2" headerCellTemplate="HeaderTemplate"
+        [width]="'8.9%'">
+        <dxi-button text="Click me" hint="Click me">
+        </dxi-button>
+      </dxi-column>
+
+      <dxi-column caption="Maintenance related downstream" alignment="center" headerCellTemplate="HeaderTemplate">
+        <dxi-column dataField="Equip" caption="Equipment" headerCellTemplate="HeaderTemplate" dataType="datetime"
+          [width]="'6%'" format="HH:mm" [editorOptions]="{ type: 'time',interval: 15}"></dxi-column>
+
+        <dxi-column dataField="Utility" caption="Utility" headerCellTemplate="HeaderTemplate" [width]="'5.2%'"
+          dataType="datetime" format="HH:mm" [editorOptions]="{ type: 'time',interval: 15}"></dxi-column>
+
+        <dxi-column dataField="Alarm" caption="Alarm" headerCellTemplate="HeaderTemplate" dataType="datetime"
+          [width]="'6%'" format="HH:mm" [editorOptions]="{ type: 'time',interval: 15}"></dxi-column>
+
+        <dxi-column dataField="OthersM" caption="Others" headerCellTemplate="HeaderTemplate" dataType="datetime"
+          [width]="'6%'" format="HH:mm" [editorOptions]="{ type: 'time',interval: 15}"></dxi-column>
+      </dxi-column>
+
+      <dxi-column caption="Remarks" type="buttons" id="btn3" headerCellTemplate="HeaderTemplate" [width]="'4.7%'">
+        <dxi-button text="Click me" hint="Remarks">
+        </dxi-button>
+      </dxi-column>
+      <dxi-column caption="Counter Measures" type="buttons" id="btn4" headerCellTemplate="HeaderTemplate"
+        [width]="'8.9%'">
+        <dxi-button text="Click me" hint="CounterMeasure">
+        </dxi-button>
+      </dxi-column>
+
+      <div *dxTemplate="let info of 'HeaderTemplate'">
+        <p style="font-weight:bold;color: darkslategray;">{{info.column.caption}}</p>
+      </div>
+    </dx-data-grid>
+  </div>
+</div>
+
+<div class="table">
+  <div class="app-container">
+    <dx-data-grid [dataSource]="[{
+          title: 'Total Sum',
+          totalIdealAvailableTime: totalIdealAvailableTime,
+          totalDynoRunning: totalDynoRunning,
+          totalFailureInvest: totalFailureInvest,
+          totalSetup: totalSetup,
+          totalNoTesting: totalNoTesting,
+          totalOthers: totalOthers,
+          totalEquip : totalEquip,
+          totalUtility: totalUtility,
+          totalAlarm: totalAlarm,
+          totalOthersM: totalOthersM
+}]" class="caption" [columnAutoWidth]="false" [showBorders]="true" [showColumnHeaders]="false">
+      <dxi-column dataField="title" [width]="'7%'">
+      </dxi-column>
+      <dxi-column dataField="totalIdealAvailableTime" [width]="'9.9%'"></dxi-column>
+      <dxi-column dataField="totalDynoRunning" [width]="'8.9%'"></dxi-column>
+      <dxi-column caption="Testing related downstream">
+        <dxi-column dataField="totalFailureInvest" [width]="'7%'"></dxi-column>
+        <dxi-column dataField="totalSetup" [width]="'5.2%'"></dxi-column>
+        <dxi-column dataField="totalNoTesting" [width]="'7%'"></dxi-column>
+        <dxi-column dataField="totalOthers" [width]="'5.2%'"></dxi-column>
+        <dxi-column dataField="" caption="Remarks" [width]="'4.7%'"></dxi-column>
+        <dxi-column dataField="" caption="Counter Measures" [width]="'8.9%'"></dxi-column>
+      </dxi-column>
+      <dxi-column caption="Maintenance related downstream">
+        <dxi-column dataField="totalEquip" [width]="'6%'"></dxi-column>
+        <dxi-column dataField="totalUtility" [width]="'5.2%'"></dxi-column>
+        <dxi-column dataField="totalAlarm" [width]="'6%'"></dxi-column>
+        <dxi-column dataField="totalOthersM" [width]="'6%'"></dxi-column>
+      </dxi-column>
+      <dxi-column dataField="" caption="Remarks" [width]="'4.7%'"></dxi-column>
+      <dxi-column dataField="" caption="Counter Measures" [width]="'8.9%'"></dxi-column>
+    </dx-data-grid>
+  </div>
+</div>

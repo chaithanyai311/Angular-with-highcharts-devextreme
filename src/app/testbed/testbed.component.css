@@ -1,0 +1,36 @@
+.chart-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.chart {
+  border: 1px solid #D6DBE3;
+  padding: 0%;
+  height: 60vh;
+  width: 70vh;
+}
+
+mat-form-field{
+  margin-left: 5%;
+}
+
+.topfield{
+    align-items: center !important;
+    justify-content: center !important;
+    display: flex;
+    width: 100%;
+    margin-top: 1%;
+}
+
+.topfield .mat-stroked-button {
+  margin-left: 20px;
+}
+
+.yearInput {
+  height: 20px;
+  border-color: #b2bccb;
+}

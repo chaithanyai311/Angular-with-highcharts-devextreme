@@ -1,0 +1,118 @@
+body{
+  font-family: Arial;
+}
+
+
+.mainComponent{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.main-content{
+  display: block;
+  align-items: flex-start;
+  flex: 1 1 100%;
+  padding: 16px;
+  flex-wrap: wrap;
+  overflow: auto;
+  height: calc(100vh - 120px);
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.topfield,
+.page-container {
+    align-items: center !important;
+    justify-content: center !important;
+    display: flex;
+    width: 100%;
+}
+
+.topfield .mat-stroked-button {
+    margin-left: 20px;
+}
+
+.yearInput {
+    height: 20px;
+    border-color: #b2bccb;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.page-container {
+    align-items: center !important;
+    justify-content: center !important;
+    display: block;
+}
+
+.TabButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2a6cd3;
+}
+
+.TabButton {
+    margin-bottom: 3%;
+    width: 40%;
+    height: 10%;
+    border-radius: 0;
+    color: #2a6cd3;
+}
+
+.active-button {
+    border-bottom: solid 2px #2a6cd3;
+}
+
+.active-testbutton {
+    background-color: #2a6cd3;
+    font-weight: bold;
+    color: white;
+}
+
+#testbed-Util {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 95%;
+}
+
+mat-form-field{
+    margin-left: 5%;
+}
+
+
+.addTestbedButton1{
+    margin-top: 20%;
+}
+
+.TestbedButton{
+    display: flex;
+    justify-content:center;
+    margin: 6% 10%;
+    padding: 6% 20%;
+    align-items: center;
+    color: #5B6D88;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.TestbedButton:hover{
+    background-color: #F5F6F8;
+    color:#2a6cd3;
+}
+
+.mat-tooltip-trigger.TestbedButton.active {
+    font-weight: bold;
+    color:#2a6cd3;
+    background-color: #E0EAF8;
+}

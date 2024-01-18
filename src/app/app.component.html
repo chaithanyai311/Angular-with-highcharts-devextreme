@@ -1,0 +1,43 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<div id="decorative">
+  <h1>TESTBED UTILIZATION</h1>
+  <div id="icon">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)=" changePassword()">
+        <span>Change password</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <span>Sign out</span>
+      </button>
+    </mat-menu>
+  </div>
+
+</div>
+
+<div id="decorative-bar"></div>
+
+<div class="mainComponent">
+  <section class="leftSidebar">
+    <div class="addTestbedButton1">
+      <div *ngFor="let item of TestbedList; let i = index" (click)="clickEventToggleclass(i, item)"
+        [class.selected]="i === testbedUtilService.selectedButtonIndex">
+        <div class="component-tile gateway-offline" id="TitleID2"
+          [ngClass]="{'clicked-button': i === testbedUtilService.selectedButtonIndex}">
+          <div class="mat-tooltip-trigger TestbedButton" [class.active]="i === testbedUtilService.selectedButtonIndex">
+            <span>{{ item }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="main-content">
+    <router-outlet> </router-outlet>
+  </section>
+</div>
